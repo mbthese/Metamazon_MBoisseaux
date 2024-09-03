@@ -1,0 +1,13 @@
+fig:nice-fig
+tab:nice-tab
+about
+year-2024
+semana-de-formación-virtual-metamazon-del-1-al-5-de-julio-2024
+taller-iquitos
+script-2024
+articulos
+presentaciones-de-los-participantes
+reserva-nacional-allpahuayo-mishana
+cross
+chapters-and-sub-chapters
+captioned-figures-and-tables

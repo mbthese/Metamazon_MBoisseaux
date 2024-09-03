@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Year 2024 | A Minimal Book for Metamazon</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book for the Metamazon project." />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Year 2024 | A Minimal Book for Metamazon" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book for the Metamazon project." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Year 2024 | A Minimal Book for Metamazon" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book for the Metamazon project." />
+  
+
+<meta name="author" content="Marion Boisseaux" />
+
+
+<meta name="date" content="2024-09-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="cross.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a></li>
+<li class="chapter" data-level="2" data-path="year-2024.html"><a href="year-2024.html"><i class="fa fa-check"></i><b>2</b> Year 2024</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="year-2024.html"><a href="year-2024.html#semana-de-formación-virtual-metamazon-del-1-al-5-de-julio-2024"><i class="fa fa-check"></i><b>2.1</b> Semana de formación virtual METAMAZON del 1 al 5 de julio 2024</a></li>
+<li class="chapter" data-level="2.2" data-path="year-2024.html"><a href="year-2024.html#taller-iquitos"><i class="fa fa-check"></i><b>2.2</b> Taller Iquitos</a></li>
+<li class="chapter" data-level="2.3" data-path="year-2024.html"><a href="year-2024.html#script-2024"><i class="fa fa-check"></i><b>2.3</b> Script 2024</a></li>
+<li class="chapter" data-level="" data-path="year-2024.html"><a href="year-2024.html#packages"><i class="fa fa-check"></i>Packages</a></li>
+<li class="chapter" data-level="" data-path="year-2024.html"><a href="year-2024.html#libraries"><i class="fa fa-check"></i>Libraries</a></li>
+<li class="chapter" data-level="" data-path="year-2024.html"><a href="year-2024.html#descargar-desde-genbank"><i class="fa fa-check"></i>Descargar desde GenBank</a>
+<ul>
+<li class="chapter" data-level="" data-path="year-2024.html"><a href="year-2024.html#peru"><i class="fa fa-check"></i>Peru</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="year-2024.html"><a href="year-2024.html#brasil"><i class="fa fa-check"></i>Brasil</a></li>
+<li class="chapter" data-level="" data-path="year-2024.html"><a href="year-2024.html#bold"><i class="fa fa-check"></i>BOLD</a></li>
+<li class="chapter" data-level="" data-path="year-2024.html"><a href="year-2024.html#how-to-do-trees-using-r"><i class="fa fa-check"></i>How to do trees using R ?</a></li>
+<li class="chapter" data-level="" data-path="year-2024.html"><a href="year-2024.html#asignación-de-secuencias-desconocidas-a-una-librería-de-referencia-con-otros-métodos-paquete-r-barcodingr"><i class="fa fa-check"></i>Asignación de secuencias desconocidas a una librería de referencia con otros métodos (paquete R BarcodingR)</a></li>
+<li class="chapter" data-level="2.4" data-path="year-2024.html"><a href="year-2024.html#articulos"><i class="fa fa-check"></i><b>2.4</b> Articulos</a></li>
+<li class="chapter" data-level="2.5" data-path="year-2024.html"><a href="year-2024.html#presentaciones-de-los-participantes"><i class="fa fa-check"></i><b>2.5</b> Presentaciones de los participantes</a></li>
+<li class="chapter" data-level="2.6" data-path="year-2024.html"><a href="year-2024.html#reserva-nacional-allpahuayo-mishana"><i class="fa fa-check"></i><b>2.6</b> Reserva nacional Allpahuayo Mishana</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>3</b> Cross-references</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>3.1</b> Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="3.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>3.2</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book for Metamazon</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="year-2024" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Year 2024<a href="year-2024.html#year-2024" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Here is the program for the first year of the project.</p>
+<div id="semana-de-formación-virtual-metamazon-del-1-al-5-de-julio-2024" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Semana de formación virtual METAMAZON del 1 al 5 de julio 2024<a href="year-2024.html#semana-de-formación-virtual-metamazon-del-1-al-5-de-julio-2024" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La próxima semana tendrá lugar nuestra sesión de formación virtual. En total, 12 formadores intervendrán durante la semana para abordar diferentes aspectos del uso de códigos de barras de ADN desde la presentación general del enfoque hasta reconstrucción filogenética y genética de poblaciones para la delimitación de especies y el uso de bases de datos internacionales de códigos de barra.</p>
+<p>Todos los cursos serán accesibles online desde este único enlace durante toda la semana: _<a href="https://umontpellier-fr.zoom.us/j/93830263869_" class="uri">https://umontpellier-fr.zoom.us/j/93830263869_</a></p>
+<p>La capacitación se realizará todos los días de lunes a viernes de las <em>9:00</em> hasta las <em>13:00</em> (GMT-5:00 - Lima) y incluirá una parte de cursos cuál terminará con una sesión de preguntas a las que responderán los profesores del día.</p>
+<p>El programa detallado de la semana se encuentra aqui:</p>
+<ul>
+<li><a href="programa/Programa_july2024.pdf">Programa July 2024</a></li>
+</ul>
+</div>
+<div id="taller-iquitos" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Taller Iquitos<a href="year-2024.html#taller-iquitos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Estamos a menos de 7 días de nuestro taller en Iquitos. Para que se pueden preparar lo mejor possible, y que su llegada se pase bien, los mandemos el programa del taller que incluye:
+- el programa actualizado de la semana
+- informaciones prácticas sobre la organización del taller
+- anuario de los participantes</p>
+<ul>
+<li><a href="programa/Programa_METAMAZON_Agosto_2024.pdf">Programa Agosto 2024</a></li>
+</ul>
+</div>
+<div id="script-2024" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Script 2024<a href="year-2024.html#script-2024" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="packages" class="section level2 unnumbered hasAnchor">
+<h2>Packages<a href="year-2024.html#packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="libraries" class="section level2 unnumbered hasAnchor">
+<h2>Libraries<a href="year-2024.html#libraries" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="year-2024.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb1-2"><a href="year-2024.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rentrez)</span>
+<span id="cb1-3"><a href="year-2024.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(phylotools)</span>
+<span id="cb1-4"><a href="year-2024.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-5"><a href="year-2024.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(seqRFLP)</span>
+<span id="cb1-6"><a href="year-2024.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-7"><a href="year-2024.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ape)</span>
+<span id="cb1-8"><a href="year-2024.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(BarcodingR)</span>
+<span id="cb1-9"><a href="year-2024.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(splits)</span>
+<span id="cb1-10"><a href="year-2024.html#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bold)</span>
+<span id="cb1-11"><a href="year-2024.html#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(splits)</span></code></pre></div>
+</div>
+<div id="descargar-desde-genbank" class="section level2 unnumbered hasAnchor">
+<h2>Descargar desde GenBank<a href="year-2024.html#descargar-desde-genbank" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="peru" class="section level3 unnumbered hasAnchor">
+<h3>Peru<a href="year-2024.html#peru" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To obtain an API Key through your NCBI account, follow these steps:</p>
+<ul>
+<li>Sign in to your NCBI account.</li>
+<li>Once signed in, access your account’s settings by clicking on your user name which is displayed in the top right corner of any NCBI page.</li>
+<li>Account settings</li>
+<li>Scroll down the page to the section entitled API Key Management.</li>
+<li>Click the Create an API Key button, which will generate a key (unique sequence of characters) displayed in the API Key Management box.</li>
+</ul>
+</div>
+</div>
+<div id="brasil" class="section level2 unnumbered hasAnchor">
+<h2>Brasil<a href="year-2024.html#brasil" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="bold" class="section level2 unnumbered hasAnchor">
+<h2>BOLD<a href="year-2024.html#bold" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="how-to-do-trees-using-r" class="section level2 unnumbered hasAnchor">
+<h2>How to do trees using R ?<a href="year-2024.html#how-to-do-trees-using-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="year-2024.html#cb2-1" aria-hidden="true" tabindex="-1"></a>tree <span class="ot">&lt;-</span> <span class="fu">read.tree</span>(<span class="st">&quot;Data/MCT_barbo_gmyc.nwk&quot;</span>)</span>
+<span id="cb2-2"><a href="year-2024.html#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="year-2024.html#cb2-3" aria-hidden="true" tabindex="-1"></a>gmyc_single <span class="ot">&lt;-</span> <span class="fu">gmyc</span>(tree, <span class="at">method =</span> <span class="st">&quot;single&quot;</span>) <span class="co">#Optimizes genetic clusters using the generalized mixed yule coalescent.</span></span></code></pre></div>
+<pre><code>## node  T   loglik
+## 2 -3.055273 390.5014 
+## 3 -2.620138 392.2448 
+## 4 -2.218061 393.8758 
+## 5 -1.142561 396.8952 
+## 6 -0.6267099 398.1031 
+## 7 -0.5476014 397.0213 
+## 8 -0.5382909 395.995 
+## 9 -0.4433933 395.7144 
+## 10 -0.4305619 395.1131 
+## 11 -0.4065495 394.9445 
+## 12 -0.3851693 394.8939 
+## 13 -0.381523 394.6614 
+## 14 -0.349054 394.5592 
+## 15 -0.3310504 394.3957 
+## 16 -0.329897 394.2457 
+## 17 -0.3070474 393.8311 
+## 18 -0.2845661 393.7635 
+## 19 -0.2681086 393.6039 
+## 20 -0.2679646 393.3894 
+## 21 -0.2537394 393.4403 
+## 22 -0.2521766 393.215 
+## 23 -0.2419285 393.0034 
+## 24 -0.2374474 392.887 
+## 25 -0.2338045 392.6641 
+## 26 -0.2191677 392.4317 
+## 27 -0.2186199 391.4239 
+## 28 -0.2167877 391.3184 
+## 29 -0.2163702 391.0074 
+## 30 -0.2141133 390.8574 
+## 31 -0.2054208 390.2979 
+## 32 -0.1958052 390.047 
+## 33 -0.1891496 389.7879 
+## 34 -0.1825583 389.0644 
+## 35 -0.1783501 388.8971 
+## 36 -0.1753595 388.1967 
+## 37 -0.1713631 389.701 
+## 38 -0.1711421 389.7677 
+## 39 -0.1623105 389.3054 
+## 40 -0.1586686 389.1617 
+## 41 -0.1575343 388.969 
+## 42 -0.1574083 388.8982 
+## 43 -0.1425217 389.0109 
+## 44 -0.1422395 389.1973 
+## 45 -0.1370439 389.1257 
+## 46 -0.133169 389.2907 
+## 47 -0.1196028 389.4891 
+## 48 -0.1143404 389.8565 
+## 49 -0.1015881 389.6223 
+## 50 -0.0966579 389.4921 
+## 51 -0.08908788 389.6775 
+## 52 -0.08486527 389.6584 
+## 53 -0.07848787 389.6604 
+## 54 -0.07532674 389.6093 
+## 55 -0.07005008 389.5649 
+## 56 -0.06968558 389.0122 
+## 57 -0.06491394 388.6848 
+## 58 -0.06149535 388.7406 
+## 59 -0.0601955 388.7775 
+## 60 -0.05958394 388.6472 
+## 61 -0.05681971 388.5208 
+## 62 -0.05550206 388.1066 
+## 63 -0.05523072 388.0301 
+## 64 -0.05486178 387.9217 
+## 65 -0.05426426 387.8233 
+## 66 -0.05360742 387.4405 
+## 67 -0.04444144 387.3129 
+## 68 -0.0406332 387.0265 
+## 69 -0.04052827 386.8101 
+## 70 -0.03831684 386.59 
+## 71 -0.0359657 386.5652 
+## 72 -0.03357435 386.5556 
+## 73 -0.03269212 386.5643 
+## 74 -0.03261033 386.5833 
+## 75 -0.03154326 386.6061 
+## 76 -0.03079578 386.64 
+## 77 -0.03001186 386.7042 
+## 78 -0.02922072 386.779 
+## 79 -0.02780451 386.8652 
+## 80 -0.02711191 386.9724 
+## 81 -0.02681365 387.0922 
+## 82 -0.02673203 387.2192 
+## 83 -0.02669239 387.35 
+## 84 -0.02452315 387.4832 
+## 85 -0.02400853 387.6568 
+## 86 -0.02349517 387.8446 
+## 87 -0.02318273 388.0476 
+## 88 -0.02290598 388.2626 
+## 89 -0.02283918 388.4896 
+## 90 -0.02225487 388.7246 
+## 91 -0.02166405 388.98 
+## 92 -0.02085182 389.258 
+## 93 -0.01963487 389.5659 
+## 94 -0.0190678 389.9174 
+## 95 -0.01894042 390.2993 
+## 
+## Tue Sep  3 21:55:00 2024
+## finish.</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="year-2024.html#cb4-1" aria-hidden="true" tabindex="-1"></a>splits<span class="sc">::</span><span class="fu">summary.gmyc</span>(gmyc_single) <span class="co"># summary statistics of the results</span></span></code></pre></div>
+<pre><code>## Result of GMYC species delimitation
+## 
+##  method: single
+##  likelihood of null model:   391.276
+##  maximum likelihood of GMYC model:   398.1031
+##  likelihood ratio:   13.65415
+##  result of LR test:  0.001084025**
+## 
+##  number of ML clusters:  3
+##  confidence interval:    3-4
+## 
+##  number of ML entities:  6
+##  confidence interval:    5-7
+## 
+##  threshold time: -0.6267099</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="year-2024.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.gmyc</span>(gmyc_single) <span class="co"># lineage through time with inferred threshold</span></span></code></pre></div>
+<p><img src="MBoisseaux_files/figure-html/unnamed-chunk-4-1.png" width="672" /><img src="MBoisseaux_files/figure-html/unnamed-chunk-4-2.png" width="672" /><img src="MBoisseaux_files/figure-html/unnamed-chunk-4-3.png" width="672" /></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="year-2024.html#cb7-1" aria-hidden="true" tabindex="-1"></a>MOTU_list<span class="ot">&lt;-</span><span class="fu">spec.list</span>(gmyc_single) <span class="co"># list of MOTUs and individuals</span></span>
+<span id="cb7-2"><a href="year-2024.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(MOTU_list, <span class="at">file =</span> <span class="st">&quot;Data/MOTU_gmyc_single.csv&quot;</span>) <span class="co"># export the list in csv format</span></span>
+<span id="cb7-3"><a href="year-2024.html#cb7-3" aria-hidden="true" tabindex="-1"></a>support <span class="ot">&lt;-</span> <span class="fu">gmyc.support</span>(gmyc_single) <span class="co"># estimate support</span></span>
+<span id="cb7-4"><a href="year-2024.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(support[support <span class="sc">==</span> <span class="dv">0</span>]) <span class="ot">&lt;-</span> <span class="cn">TRUE</span> <span class="co"># select nodes</span></span>
+<span id="cb7-5"><a href="year-2024.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tree, <span class="at">cex =</span> <span class="fl">0.4</span>, <span class="at">no.margin =</span> <span class="cn">TRUE</span>) <span class="co"># plot tree</span></span>
+<span id="cb7-6"><a href="year-2024.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">nodelabels</span>(<span class="fu">round</span>(support, <span class="dv">2</span>), <span class="at">cex =</span> <span class="fl">0.9</span>) <span class="co"># plot support on tree</span></span></code></pre></div>
+<p><img src="MBoisseaux_files/figure-html/unnamed-chunk-4-4.png" width="672" /></p>
+</div>
+<div id="asignación-de-secuencias-desconocidas-a-una-librería-de-referencia-con-otros-métodos-paquete-r-barcodingr" class="section level2 unnumbered hasAnchor">
+<h2>Asignación de secuencias desconocidas a una librería de referencia con otros métodos (paquete R BarcodingR)<a href="year-2024.html#asignación-de-secuencias-desconocidas-a-una-librería-de-referencia-con-otros-métodos-paquete-r-barcodingr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="year-2024.html#cb8-1" aria-hidden="true" tabindex="-1"></a>REF <span class="ot">&lt;-</span> <span class="fu">read.dna</span>(<span class="st">&quot;Data/Barbonymus_REF.fasta&quot;</span>, <span class="at">format =</span> <span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb8-2"><a href="year-2024.html#cb8-2" aria-hidden="true" tabindex="-1"></a>ID <span class="ot">&lt;-</span> <span class="fu">read.dna</span>(<span class="st">&quot;Data/Barbonymus_ID.fasta&quot;</span>, <span class="at">format =</span> <span class="st">&quot;fasta&quot;</span>)</span>
+<span id="cb8-3"><a href="year-2024.html#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="year-2024.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#3 diferentes metodos para obtener la identification y la probabilidad</span></span>
+<span id="cb8-5"><a href="year-2024.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#comme des BLAST en local avec différentes méthodes, car on donne des FASTA</span></span>
+<span id="cb8-6"><a href="year-2024.html#cb8-6" aria-hidden="true" tabindex="-1"></a>fuzzyId<span class="ot">&lt;-</span><span class="fu">barcoding.spe.identify</span>(REF, ID, <span class="at">method =</span> <span class="st">&quot;fuzzyId&quot;</span>)</span>
+<span id="cb8-7"><a href="year-2024.html#cb8-7" aria-hidden="true" tabindex="-1"></a>Bayesian<span class="ot">&lt;-</span><span class="fu">barcoding.spe.identify</span>(REF, ID, <span class="at">method =</span> <span class="st">&quot;Bayesian&quot;</span>)</span>
+<span id="cb8-8"><a href="year-2024.html#cb8-8" aria-hidden="true" tabindex="-1"></a>BP<span class="ot">&lt;-</span><span class="fu">barcoding.spe.identify</span>(REF, ID, <span class="at">method =</span> <span class="st">&quot;bpNewTraining&quot;</span>)</span></code></pre></div>
+<pre><code>## # weights:  390
+## initial  value 9.536210 
+## iter  10 value 4.486967
+## iter  20 value 2.834032
+## iter  30 value 2.146976
+## iter  40 value 1.952820
+## iter  50 value 1.855951
+## iter  60 value 1.770231
+## iter  70 value 1.745632
+## iter  80 value 1.695333
+## iter  90 value 1.669556
+## iter 100 value 1.634618
+## iter 110 value 1.558788
+## iter 120 value 1.521738
+## iter 130 value 1.483572
+## iter 140 value 1.465660
+## iter 150 value 1.287873
+## iter 160 value 0.907928
+## iter 170 value 0.777960
+## iter 180 value 0.454977
+## iter 190 value 0.295389
+## iter 200 value 0.264890
+## iter 210 value 0.261264
+## iter 220 value 0.254661
+## iter 230 value 0.245552
+## iter 240 value 0.234207
+## iter 250 value 0.231749
+## iter 260 value 0.226254
+## iter 270 value 0.224341
+## iter 280 value 0.216840
+## iter 290 value 0.208218
+## iter 300 value 0.199601
+## iter 310 value 0.183700
+## iter 320 value 0.171044
+## iter 330 value 0.162864
+## iter 340 value 0.150543
+## iter 350 value 0.130667
+## iter 360 value 0.117472
+## iter 370 value 0.105938
+## iter 380 value 0.098872
+## iter 390 value 0.093715
+## iter 400 value 0.089248
+## iter 410 value 0.083132
+## iter 420 value 0.079997
+## iter 430 value 0.076934
+## iter 440 value 0.073143
+## iter 450 value 0.069803
+## iter 460 value 0.067713
+## iter 470 value 0.065987
+## iter 480 value 0.063655
+## iter 490 value 0.063127
+## iter 500 value 0.062854
+## iter 510 value 0.062711
+## iter 520 value 0.062659
+## iter 530 value 0.062642
+## iter 540 value 0.062632
+## iter 550 value 0.062617
+## iter 560 value 0.062611
+## iter 570 value 0.062607
+## iter 580 value 0.062556
+## iter 590 value 0.062538
+## iter 600 value 0.062321
+## iter 610 value 0.062282
+## iter 620 value 0.061781
+## iter 630 value 0.061716
+## iter 640 value 0.061324
+## iter 650 value 0.061307
+## iter 660 value 0.061282
+## iter 670 value 0.061269
+## iter 680 value 0.061239
+## iter 690 value 0.060973
+## iter 700 value 0.060957
+## iter 710 value 0.060884
+## iter 720 value 0.060876
+## iter 730 value 0.060876
+## final  value 0.060876 
+## converged</code></pre>
+</div>
+<div id="articulos" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Articulos<a href="year-2024.html#articulos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p><strong>Artículo 1</strong> Hubert, Nicolas, et al. “Identifying Canadian freshwater fishes through DNA barcodes.” <em>PLoS one</em> 3.6 (2008): e2490. <a href="articulos/Articulo_1-Hubert_et_al_2008.pdf">Articulo 1</a></p></li>
+<li><p><strong>Artículo 2</strong> CBOL Plant Working Group 1, et al. “A DNA barcode for land plants.” <em>Proceedings of the National Academy of Sciences</em> 106.31 (2009): 12794-12797. <a href="articulos/Articulo_2-Hollingsworth_et_al_2009.pdf">Articulo 2</a></p></li>
+<li><p><strong>Artículo 3</strong> Truong, Camille, et al. “Ectomycorrhizal fungi and soil enzymes exhibit contrasting patterns along elevation gradients in southern Patagonia.” <em>New Phytologist</em> 222.4 (2019): 1936-1950. <a href="articulos/Articulo_3_Truong-knowfungi-2017.pdf">Articulo 3</a></p></li>
+</ul>
+<p><a href="articulos/articulo3_90004204-sup-0001-SupInfo.pdf">Supplementary Articulo 3</a></p>
+<ul>
+<li><p><strong>Artículo 4</strong> Blair, Christopher, and Robert W. Bryson Jr. “Cryptic diversity and discordance in single-locus species delimitation methods within horned lizards (Phrynosomatidae: Phrynosoma).” <em>Molecular Ecology Resources</em> 17.6 (2017): 1168-1182. <a href="articulos/Articulo_4-Blair_et_al_2017.pdf">Articulo 4</a></p></li>
+<li><p><strong>Artículo 5</strong> Puillandre, Nicolas, Sophie Brouillet, and Guillaume Achaz. “ASAP: assemble species by automatic partitioning.” <em>Molecular Ecology Resources</em> 21.2 (2021): 609-620. <a href="articulos/Articulo_5-Puillandre_et_al_2020.pdf">Articulo 5</a></p></li>
+<li><p><strong>Artículo 6</strong> Arida, Evy, et al. “Exploring the vertebrate fauna of the Bird’s Head Peninsula (Indonesia, West Papua) through DNA barcodes.” <em>Molecular Ecology Resources</em> 21.7 (2021): 2369-2387. <a href="articulos/Articulo_6-Arida_et_al_2021.pdf">Articulo 6</a></p></li>
+</ul>
+</div>
+<div id="presentaciones-de-los-participantes" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Presentaciones de los participantes<a href="year-2024.html#presentaciones-de-los-participantes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Cada participante prepara un powerpoint para presentarse y presentar su experiencia de trabajo de laboratorio, protocolos de extracción y técnicas de secuenciación, presentación de sus temas de investigación y
+modelos biológicos.</p>
+<p><a href="presentaciones_participantes/MBoisseaux.pdf">Marion Boisseaux</a></p>
+</div>
+<div id="reserva-nacional-allpahuayo-mishana" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Reserva nacional Allpahuayo Mishana<a href="year-2024.html#reserva-nacional-allpahuayo-mishana" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>! <a href="photos/20240829_070712.jpg">Reserva nacional Allpahuayo Mishana</a></p>
+<p>Recogida de muestras, técnica de muestreo y conservación, presentación de procedimientos de adquisición de datos de campo en un contexto de código de barras de ADN, gestión de una colección de trabajo.</p>
+<p>Presentación <strong>Nicolas Hubert</strong> sobre los procedimientos para códigos de barra</p>
+<p>Presentación Nora Scarcelli y Mélanie Roy sobre el muestreo de plantas y
+hongos, gestión de colección y procedimientos para códigos de barra</p>
+<p>Presentación Guido sobre muestreo larva de peces</p>
+<p>Presentación Dario Acha sobre colecta de muestras de microorganismos</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cross.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["MBoisseaux.pdf", "MBoisseaux.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
