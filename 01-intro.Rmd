@@ -1,11 +1,235 @@
-# Hello bookdown 
+# Year 2024 
 
-All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (`#`) per .Rmd file.
+Here is the program for the first year of the project.
 
-## A section
 
-All chapter sections start with a second-level (`##`) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter.
+## Semana de formación virtual METAMAZON del 1 al 5 de julio 2024
 
-### An unnumbered section {-}
+La próxima semana tendrá lugar nuestra sesión de formación virtual. En total, 12 formadores intervendrán durante la semana para abordar diferentes aspectos del uso de códigos de barras de ADN desde la presentación general del enfoque hasta reconstrucción filogenética y genética de poblaciones para la delimitación de especies y el uso de bases de datos internacionales de códigos de barra.
 
-Chapters and sections are numbered by default. To un-number a heading, add a `{.unnumbered}` or the shorter `{-}` at the end of the heading, like in this section.
+Todos los cursos serán accesibles online desde este único enlace durante toda la semana: _https://umontpellier-fr.zoom.us/j/93830263869_
+
+La capacitación se realizará todos los días de lunes a viernes de las *9:00* hasta las *13:00* (GMT-5:00 - Lima) y incluirá una parte de cursos cuál terminará con una sesión de preguntas a las que responderán los profesores del día. 
+
+El programa detallado de la semana se encuentra aqui:
+
+* [Programa July 2024](programa/Programa_july2024.pdf)
+
+
+## Taller Iquitos
+
+Estamos a menos de 7 días de nuestro taller en Iquitos. Para que se pueden preparar lo mejor possible, y que su llegada se pase bien, los mandemos el programa del taller que incluye:
+- el programa actualizado de la semana
+- informaciones prácticas sobre la organización del taller
+- anuario de los participantes
+
+* [Programa Agosto 2024](programa/Programa_METAMAZON_Agosto_2024.pdf)
+
+## Script 2024 
+
+## Packages  {-}
+
+```{r Packages, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+install.packages("devtools")
+install.packages("rentrez")
+install.packages("phylotools")
+install.packages("readr")
+install_github("helixcn/seqRFLP")
+install.packages("splits", repos="http://R-Forge.R-project.org")
+install.packages("BarcodingR")
+#install.packages("bold") #Warning in install.packages : package ‘bold’ is not available for this version of R, need to install it by github, see below
+install.packages("paran")
+
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("sangerseqR")
+remotes::install_github("ropensci/bold")
+install.packages("splits", repos="http://R-Forge.R-project.org")
+
+```
+
+## Libraries  {-}
+```{r Libraries, message=FALSE, warning=FALSE}
+library(devtools)
+library(rentrez)
+library(phylotools)
+library(readr)
+library(seqRFLP)
+library(dplyr)
+library(ape)
+library(BarcodingR)
+library(splits)
+library(bold)
+library(splits)
+```
+
+## Descargar desde GenBank  {-}
+
+### Peru  {-}
+
+To obtain an API Key through your NCBI account, follow these steps:
+
+* Sign in to your NCBI account.
+* Once signed in, access your account's settings by clicking on your user name which is displayed in the top right corner of any NCBI page.
+* Account settings
+* Scroll down the page to the section entitled API Key Management.
+* Click the Create an API Key button, which will generate a key (unique sequence of characters) displayed in the API Key Management box.
+
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+Siluriformes_PERU <- "Siluriformes[Organism] AND COI[Gene] AND Peru [Country]"
+
+#Siluriformes_PERU <- entrez_search(db = "nuccore", term = Siluriformes_PERU, use_history = TRUE, api_key= "e6e5f73e776e95b81b95038dd86dd37ff608") #tengo que remplazar el api_key cada vez que hago el libro
+
+Siluriformes_PERU$web_history
+
+Siluriformes_PERU_seqs <- entrez_fetch(db = "nuccore", rettype="fasta", web_history = Siluriformes_PERU$web_history)
+
+Siluriformes_PERU_COI_fasta <- write.table(Siluriformes_PERU_seqs, file= "Data/Siluriformes_PERU_COI.fasta", sep= "\t", row.names = F)
+
+#Cambia los names para abrir despues en MEGA
+old_name <- get.fasta.name("Data/Siluriformes_PERU_COI.fasta")
+new_name_1<- paste(old_name, 'PERU')
+new_name_2 <- gsub(' ', '_', new_name_1)
+new_name_3 <- gsub('"', '', new_name_2)
+ref2 <- data.frame(old_name, new_name_3)
+rename.fasta(infile = "Data/Siluriformes_PERU_COI.fasta", ref_table = ref2, outfile = "Data/Siluriformes_PERU_COI.fasta")
+
+Siluriformes_PERU_COI.fasta <- readLines("Data/Siluriformes_PERU_COI.fasta")
+num_sequences <- sum(grepl(">", Siluriformes_PERU_COI.fasta))
+
+
+```
+
+## Brasil  {-}
+```{r eval=FALSE, include=FALSE}
+Siluriformes_BRASIL <- "Siluriformes[Organism] AND COI[Gene] AND BRASIL [Country]"
+
+#Siluriformes_BRASIL <- entrez_search(db = "nuccore", term = Siluriformes_BRASIL, use_history = TRUE, api_key= "f36bceaa9f0f7ae09a430733784db7409d08")
+
+Siluriformes_BRASIL$web_history
+
+Siluriformes_BRASIL_seqs <- entrez_fetch(db = "nuccore", rettype="fasta", web_history = Siluriformes_BRASIL$web_history)
+
+Siluriformes_BRASIL_COI_fasta <- write.table(Siluriformes_BRASIL_seqs, file= "Data/Siluriformes_BRASIL_COI.fasta", sep= "\t", row.names = F)
+
+#Cambia los names para abrir despues en MEGA
+old_name <- get.fasta.name("Data/Siluriformes_BRASIL_COI.fasta")
+new_name_1<- paste(old_name, 'BRASIL')
+new_name_2 <- gsub(' ', '_', new_name_1)
+new_name_3 <- gsub('"', '', new_name_2)
+ref2 <- data.frame(old_name, new_name_3)
+rename.fasta(infile = "Data/Siluriformes_BRASIL_COI.fasta", ref_table = ref2, outfile = "Data/Siluriformes_BRASIL_COI.fasta")
+
+
+Siluriformes_BRASIL_COI.fasta <- readLines("Data/Siluriformes_BRASIL_COI.fasta")
+num_sequences <- sum(grepl(">", Siluriformes_BRASIL_COI.fasta))
+
+```
+
+
+## BOLD  {-}
+
+```{r eval=FALSE, include=FALSE}
+library("bold")
+library("readr")
+library("seqRFLP")
+library("dplyr")
+library("devtools")
+
+#Siluriformes PERU
+
+Sequences_bold <- bold_seqspec(taxon= "Siluriformes", marker="COI-5P", geo="PERU")
+Sequences_bold_filtradas <- Sequences_bold[grepl("COI_5P", Sequences_bold$marker_codes), ] 
+
+D <- as.data.frame(Sequences_bold_filtradas[, c(22,1,55,72)], drop=F)
+
+#merge column for header
+D$header <- paste(D$species_name,D$processid, D$country)
+D <- D[,-c(1,2,3)]
+
+#ordering column
+D <- D[,c(2,1)]
+
+D$header <-gsub(' ', '_', D$header)
+
+Siluriformes_PERU_COI.fasta= dataframe2fas(D, file= "Data/Siluriformes_BOLD_PERU_COI.fasta")
+
+num_sequences <- sum(grepl(">", Siluriformes_PERU_COI.fasta))
+num_sequences
+```
+
+
+## How to do trees using R ?  {-}
+
+```{r}
+tree <- read.tree("Data/MCT_barbo_gmyc.nwk")
+
+gmyc_single <- gmyc(tree, method = "single") #Optimizes genetic clusters using the generalized mixed yule coalescent.
+
+splits::summary.gmyc(gmyc_single) # summary statistics of the results
+plot.gmyc(gmyc_single) # lineage through time with inferred threshold
+
+MOTU_list<-spec.list(gmyc_single) # list of MOTUs and individuals
+write.csv(MOTU_list, file = "Data/MOTU_gmyc_single.csv") # export the list in csv format
+support <- gmyc.support(gmyc_single) # estimate support
+is.na(support[support == 0]) <- TRUE # select nodes
+plot(tree, cex = 0.4, no.margin = TRUE) # plot tree
+nodelabels(round(support, 2), cex = 0.9) # plot support on tree
+```
+
+## Asignación de secuencias desconocidas a una librería de referencia con otros métodos (paquete R BarcodingR)  {-}
+
+
+```{r}
+REF <- read.dna("Data/Barbonymus_REF.fasta", format = "fasta")
+ID <- read.dna("Data/Barbonymus_ID.fasta", format = "fasta")
+
+#3 diferentes metodos para obtener la identification y la probabilidad
+#comme des BLAST en local avec différentes méthodes, car on donne des FASTA
+fuzzyId<-barcoding.spe.identify(REF, ID, method = "fuzzyId")
+Bayesian<-barcoding.spe.identify(REF, ID, method = "Bayesian")
+BP<-barcoding.spe.identify(REF, ID, method = "bpNewTraining")
+
+
+```
+
+
+## Articulos
+
+* **Artículo 1** Hubert, Nicolas, et al. "Identifying Canadian freshwater fishes through DNA barcodes." _PLoS one_ 3.6 (2008): e2490. [Articulo 1](articulos/Articulo_1-Hubert_et_al_2008.pdf)
+
+* **Artículo 2** CBOL Plant Working Group 1, et al. "A DNA barcode for land plants." _Proceedings of the National Academy of Sciences_ 106.31 (2009): 12794-12797. [Articulo 2](articulos/Articulo_2-Hollingsworth_et_al_2009.pdf)
+
+* **Artículo 3** Truong, Camille, et al. "Ectomycorrhizal fungi and soil enzymes exhibit contrasting patterns along elevation gradients in southern Patagonia." _New Phytologist_ 222.4 (2019): 1936-1950. [Articulo 3](articulos/Articulo_3_Truong-knowfungi-2017.pdf) 
+
+[Supplementary Articulo 3](articulos/articulo3_90004204-sup-0001-SupInfo.pdf)
+
+* **Artículo 4** Blair, Christopher, and Robert W. Bryson Jr. "Cryptic diversity and discordance in single-locus species delimitation methods within horned lizards (Phrynosomatidae: Phrynosoma)." _Molecular Ecology Resources_ 17.6 (2017): 1168-1182. [Articulo 4](articulos/Articulo_4-Blair_et_al_2017.pdf)
+
+* **Artículo 5** Puillandre, Nicolas, Sophie Brouillet, and Guillaume Achaz. "ASAP: assemble species by automatic partitioning." _Molecular Ecology Resources_ 21.2 (2021): 609-620. [Articulo 5](articulos/Articulo_5-Puillandre_et_al_2020.pdf)
+
+* **Artículo 6** Arida, Evy, et al. "Exploring the vertebrate fauna of the Bird’s Head Peninsula (Indonesia, West Papua) through DNA barcodes." _Molecular Ecology Resources_ 21.7 (2021): 2369-2387. [Articulo 6](articulos/Articulo_6-Arida_et_al_2021.pdf)
+
+## Presentaciones de los participantes
+
+Cada participante prepara un powerpoint para presentarse y presentar su experiencia de trabajo de laboratorio, protocolos de extracción y técnicas de secuenciación, presentación de sus temas de investigación y
+modelos biológicos.
+
+[Marion Boisseaux](presentaciones_participantes/MBoisseaux.pdf)
+
+## Reserva nacional Allpahuayo Mishana
+
+! [Reserva nacional Allpahuayo Mishana](photos/20240829_070712.jpg)
+
+Recogida de muestras, técnica de muestreo y conservación, presentación de procedimientos de adquisición de datos de campo en un contexto de código de barras de ADN, gestión de una colección de trabajo.
+
+
+Presentación **Nicolas Hubert** sobre los procedimientos para códigos de barra 
+
+Presentación Nora Scarcelli y Mélanie Roy sobre el muestreo de plantas y
+hongos, gestión de colección y procedimientos para códigos de barra
+
+Presentación Guido sobre muestreo larva de peces
+
+Presentación Dario Acha sobre colecta de muestras de microorganismos
